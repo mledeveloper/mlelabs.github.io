@@ -57,13 +57,13 @@ Plotting the power against the standardized effect size R (e.g., effect size div
 Here is an example of a sample size determination function in Python for a t-test:
 
 ```
-def sample_size_det_t_test2(d, s, alpha, power):
-    for n in range(1, 1000):
-        t_a = abs(stats.t.ppf(alpha, df=2 * (n - 1)))
-        t = t_a - ((d / s) * (n / 2) ** 0.5)
-        l = (1 - power) - stats.t.cdf(t, df=2 * (n - 1))
-        if l > 0:
-            return n, l
+def sample_size_det_t_test2(d,s,alpha,power):
+    for n in range(1,1000):
+        t_a=abs(stats.t.ppf(alpha,df=2*(n-1)))
+        t=t_a-((d/s)*(n/2)**0.5)
+        l=(1-power)-stats.t.cdf(t,df=2*(n-1))
+        if l>0:
+            return n,l
 ```
 
 This function takes as input delta: the minimum detectable effect δ, sd: the best guess of σb, siglevel: the significance level α, power: the power 1 − β.
